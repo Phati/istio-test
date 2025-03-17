@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-a-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-a-app
+  template:
+    metadata:
+      labels:
+        app: service-a-app
+    spec:
+      containers:
+        - name: service-a-app
+          image: phatijava/service-a:latest
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-a-app
+spec:
+  selector:
+    app: service-a-app
+  ports:
+    - port: 8080
+      targetPort: 8080
+
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: service-a-app
+  labels:
+    account: service-a-app
