@@ -18,6 +18,12 @@ spec:
           ports:
             - containerPort: 8080
           imagePullPolicy: Always
+          env:
+          - name: SERVICE_B_BASE_URL
+            value: http://35.239.194.96/service-b
+          - name: JAVA_OPTS
+            value: -DSERVICE_B_BASE_URL=$(SERVICE_B_BASE_URL)
+            
 ---
 
 apiVersion: v1
