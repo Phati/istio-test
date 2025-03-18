@@ -27,7 +27,7 @@ spec:
           imagePullPolicy: Always
           env:
           - name: SERVICE_B_BASE_URL
-            value: http://35.239.194.96/service-b
+            value: http://104.198.252.70/service-b
           - name: JAVA_OPTS
             value: -DSERVICE_B_BASE_URL=$(SERVICE_B_BASE_URL)
             
