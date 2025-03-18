@@ -15,6 +15,13 @@ spec:
       containers:
         - name: service-b-app
           image: phatijava/service-b:latest
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "500Mi"
+              cpu: "500m"
           ports:
             - containerPort: 8080
           imagePullPolicy: Always
